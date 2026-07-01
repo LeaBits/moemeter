@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, #e4ecff 0, transparent 36%),
+    linear-gradient(180deg, #f7f9fd 0%, var(--bg-soft) 100%);
+  color: var(--text);
+}
+
+.app {
+  max-width: 520px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 22px 16px 104px;
+}
+
+.page {
+  display: grid;
+  gap: 16px;
+}
+
+h1 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1.15rem;
+  font-weight: 850;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--text-light);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--primary);
+  font-weight: 850;
+}
+
+.login-screen {
+  min-height: 80vh;
+  place-content: center;
+  text-align: center;
+}

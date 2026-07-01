@@ -1,0 +1,28 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+
+  --bg: #f4f7fb;
+  --bg-soft: #eef3f9;
+  --surface: #ffffff;
+  --surface-soft: #f8fbff;
+
+  --text: #213547;
+  --text-strong: #172334;
+  --text-light: #6d7b8a;
+
+  --primary: #4f7df3;
+  --primary-soft: #e8efff;
+
+  --physical: #f2994a;
+  --mental: #7c6ee6;
+  --rest: #57b894;
+
+  --success: #3d9b64;
+  --danger: #e86a6a;
+
+  --border: #dbe3ee;
+  --shadow: 0 12px 30px rgba(61, 82, 120, 0.1);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+}

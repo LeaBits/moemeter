@@ -1,5 +1,13 @@
 export type ActivityType = "physical" | "mental" | "rest";
 
+export interface Factor {
+  id?: string;
+  userId: string;
+  name: string;
+  emoji: string;
+  createdAt: string;
+}
+
 export interface MoeEntry {
   id?: string;
   userId: string;
@@ -9,5 +17,6 @@ export interface MoeEntry {
   type: ActivityType;
   tiredness: number;
   notes: string;
+  factorIds: string[];
   createdAt: string;
 }
