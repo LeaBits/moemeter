@@ -20,3 +20,17 @@ export interface MoeEntry {
   factorIds: string[];
   createdAt: string;
 }
+
+export type DaySummary = {
+  date: string;
+
+  entries: MoeEntry[];
+
+  averageTiredness: number;
+
+  physicalHours: number;
+  mentalHours: number;
+  restHours: number;
+
+  factors: string[];
+};

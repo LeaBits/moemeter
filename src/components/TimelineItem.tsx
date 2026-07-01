@@ -21,12 +21,7 @@ type TimelineItemProps = {
   onDelete: (entryId: string) => void;
 };
 
-export function TimelineItem({
-  entry,
-  factors,
-  onEdit,
-  onDelete,
-}: TimelineItemProps) {
+export function TimelineItem({ entry, factors, onEdit, onDelete }: TimelineItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const entryFactors = factors.filter((factor) =>
@@ -35,9 +30,7 @@ export function TimelineItem({
 
   return (
     <article className={`timeline-item ${entry.type}`}>
-      <div className={`timeline-dot ${tirednessColor(entry.tiredness)}`}>
-        {entry.tiredness}
-      </div>
+      <div className={`timeline-dot type-dot ${entry.type}`}>{icons[entry.type]}</div>
 
       <button
         type="button"
@@ -45,11 +38,9 @@ export function TimelineItem({
         onClick={() => setIsOpen((current) => !current)}
       >
         <div>
-          <strong>
-            {icons[entry.type]} {entry.notes}
-          </strong>
+          <strong>{entry.notes}</strong>
           <span>
-            {entry.startTime}–{entry.endTime} · {entry.type}
+            {entry.startTime}–{entry.endTime} · {icons[entry.type]} {entry.type}
           </span>
         </div>
 

@@ -25,9 +25,9 @@ export default function App() {
     <main className="app">
       {page === "today" && (
         <TodayPage user={user} onManageFactors={() => setPage("settings")} />
-        )}
-      {page === "calendar" && <CalendarPage />}
-      {page === "insights" && <InsightsPage />}
+      )}
+      {page === "calendar" && <CalendarPage user={user} />}
+      {page === "insights" && <InsightsPage user={user} />}
       {page === "settings" && <SettingsPage user={user} logout={logout} />}
 
       <BottomNav page={page} setPage={setPage} />

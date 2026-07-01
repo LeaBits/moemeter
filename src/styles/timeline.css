@@ -149,3 +149,42 @@
   font-size: 0.8rem;
   font-weight: 700;
 }
+
+.timeline-dot {
+  position: absolute;
+  left: -22px;
+  top: 8px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 900;
+}
+
+.timeline-dot.physical {
+  background: var(--physical);
+}
+
+.timeline-dot.mental {
+  background: var(--mental);
+}
+
+.timeline-dot.rest {
+  background: var(--rest);
+}
+
+.timeline-item.physical .timeline-summary {
+  border-left: 4px solid var(--physical);
+}
+
+.timeline-item.mental .timeline-summary {
+  border-left: 4px solid var(--mental);
+}
+
+.timeline-item.rest .timeline-summary {
+  border-left: 4px solid var(--rest);
+}

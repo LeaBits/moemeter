@@ -47,18 +47,32 @@ export function EntryForm({
       <div className="time-row">
         <label>
           From
-          <input type="time" value={startTime} onChange={(e) => setStartTime(e.target.value)} />
+          <input
+            type="time"
+            step="900"
+            value={startTime}
+            onChange={(e) => setStartTime(e.target.value)}
+          />
         </label>
 
         <label>
           To
-          <input type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
+          <input
+            type="time"
+            step="900"
+            value={endTime}
+            onChange={(e) => setEndTime(e.target.value)}
+          />
         </label>
       </div>
 
       <label>
         Type
-        <select value={type} onChange={(e) => setType(e.target.value as ActivityType)}>
+        <select
+          value={type}
+          className={`activity-select ${type}`}
+          onChange={(e) => setType(e.target.value as ActivityType)}
+        >
           <option value="physical">🚶 Physical</option>
           <option value="mental">🧠 Mental</option>
           <option value="rest">😌 Rest</option>

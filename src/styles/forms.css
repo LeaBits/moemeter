@@ -65,3 +65,18 @@ button:active {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
+
+.activity-select.physical {
+  border-color: var(--physical);
+  background: #fff4e8;
+}
+
+.activity-select.mental {
+  border-color: var(--mental);
+  background: #f1efff;
+}
+
+.activity-select.rest {
+  border-color: var(--rest);
+  background: #ecfbf3;
+}

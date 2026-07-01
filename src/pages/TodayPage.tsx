@@ -25,6 +25,30 @@ function tirednessLabel(value: number) {
   return "😴 Exhausted";
 }
 
+function defaultStartTime(entries: MoeEntry[]) {
+  if (entries.length === 0) return "00:00";
+
+  return entries[entries.length - 1].endTime;
+}
+
+function addOneHour(time: string) {
+  const [hours, minutes] = time.split(":").map(Number);
+  const date = new Date();
+  date.setHours(hours + 1, minutes, 0, 0);
+
+  return date.toTimeString().slice(0, 5);
+}
+
+function roundToQuarterHour(time: string) {
+  const [hours, minutes] = time.split(":").map(Number);
+  const roundedMinutes = Math.round(minutes / 15) * 15;
+
+  const date = new Date();
+  date.setHours(hours, roundedMinutes, 0, 0);
+
+  return date.toTimeString().slice(0, 5);
+}
+
 export function TodayPage({ user, onManageFactors }: TodayPageProps) {
   const [date, setDate] = useState(today());
   const [showForm, setShowForm] = useState(false);
@@ -46,8 +70,7 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
     const averageTiredness =
       entries.length === 0
         ? 0
-        : entries.reduce((sum, entry) => sum + entry.tiredness, 0) /
-          entries.length;
+        : entries.reduce((sum, entry) => sum + entry.tiredness, 0) / entries.length;
 
     const hoursByType = { physical: 0, mental: 0, rest: 0 };
 
@@ -73,6 +96,12 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
 
   function openNewForm() {
     resetForm();
+
+    const nextStartTime = roundToQuarterHour(defaultStartTime(entries));
+
+    setStartTime(nextStartTime);
+    setEndTime(addOneHour(nextStartTime));
+
     setShowForm(true);
   }
 
@@ -123,7 +152,7 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
         average={stats.averageTiredness}
         tirednessLabel={tirednessLabel(stats.averageTiredness)}
         onManageFactors={onManageFactors}
-        />
+      />
 
       {saved && <p className="success">Moe saved!</p>}
 
@@ -154,7 +183,7 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
           <div>
             <h2>Timeline</h2>
             <p className="section-date">{displayDate(date)}</p>
-            </div>
+          </div>
           <button type="button" className="small-button" onClick={openNewForm}>
             + Add
           </button>
@@ -165,11 +194,7 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
             ←
           </button>
 
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
+          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
 
           <button type="button" onClick={() => setDate(shiftDate(date, 1))}>
             →
@@ -177,16 +202,35 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
         </div>
 
         <div className="filters">
-          <button type="button" onClick={() => setFilter("all")}>
+          <button
+            type="button"
+            className={filter === "all" ? "active all" : "all"}
+            onClick={() => setFilter("all")}
+          >
             All
           </button>
-          <button type="button" onClick={() => setFilter("physical")}>
+
+          <button
+            type="button"
+            className={filter === "physical" ? "active physical" : "physical"}
+            onClick={() => setFilter("physical")}
+          >
             🚶 Physical
           </button>
-          <button type="button" onClick={() => setFilter("mental")}>
+
+          <button
+            type="button"
+            className={filter === "mental" ? "active mental" : "mental"}
+            onClick={() => setFilter("mental")}
+          >
             🧠 Mental
           </button>
-          <button type="button" onClick={() => setFilter("rest")}>
+
+          <button
+            type="button"
+            className={filter === "rest" ? "active rest" : "rest"}
+            onClick={() => setFilter("rest")}
+          >
             😌 Rest
           </button>
         </div>
