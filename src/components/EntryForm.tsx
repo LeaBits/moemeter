@@ -83,7 +83,7 @@ export function EntryForm({
         Tiredness afterwards: {tiredness}/10
         <input
           type="range"
-          min="1"
+          min="0"
           max="10"
           value={tiredness}
           onChange={(e) => setTiredness(Number(e.target.value))}

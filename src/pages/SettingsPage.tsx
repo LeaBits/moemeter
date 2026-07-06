@@ -3,23 +3,74 @@ import type { User } from "firebase/auth";
 import { useFactors } from "../hooks/useFactors";
 
 const emojiOptions = [
+  // Sleep
   "😴",
   "🛏️",
+  "🌙",
   "⏰",
+
+  // Health
   "🤒",
+  "🤧",
   "🤕",
   "💊",
+  "🩺",
+
+  // Food & Drink
+  "☕",
+  "🫖",
+  "🥤",
+  "🍎",
+  "🍽️",
+  "💧",
+
+  // Physical
+  "🚶",
+  "🏃",
+  "🚴",
+  "🏋️",
   "🚗",
   "🚆",
-  "🏠",
-  "💼",
-  "👥",
+  "✈️",
+
+  // Mental
   "🧠",
+  "💼",
+  "📚",
+  "📝",
+  "🎨",
+
+  // Social
+  "👥",
+  "💬",
+  "👨‍👩‍👧",
+  "❤️",
+  "🎉",
+
+  // Environment
+  "🏠",
+  "🏢",
+  "🌳",
   "☀️",
   "🌧️",
-  "🔊",
+  "❄️",
+  "🌡️",
+
+  // Sensory
   "📱",
-  "☕",
+  "💻",
+  "🔊",
+  "🎧",
+  "💡",
+
+  // Recovery
+  "😌",
+  "🧘",
+  "📖",
+  "🎮",
+  "📺",
+
+  // Misc
   "🏷️",
 ];
 

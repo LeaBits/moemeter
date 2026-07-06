@@ -2,23 +2,74 @@ import { useState } from "react";
 import type { Factor } from "../types";
 
 const emojiOptions = [
+  // Sleep
   "😴",
   "🛏️",
+  "🌙",
   "⏰",
+
+  // Health
   "🤒",
+  "🤧",
   "🤕",
   "💊",
+  "🩺",
+
+  // Food & Drink
+  "☕",
+  "🫖",
+  "🥤",
+  "🍎",
+  "🍽️",
+  "💧",
+
+  // Physical
+  "🚶",
+  "🏃",
+  "🚴",
+  "🏋️",
   "🚗",
   "🚆",
-  "🏠",
-  "💼",
-  "👥",
+  "✈️",
+
+  // Mental
   "🧠",
+  "💼",
+  "📚",
+  "📝",
+  "🎨",
+
+  // Social
+  "👥",
+  "💬",
+  "👨‍👩‍👧",
+  "❤️",
+  "🎉",
+
+  // Environment
+  "🏠",
+  "🏢",
+  "🌳",
   "☀️",
   "🌧️",
-  "🔊",
+  "❄️",
+  "🌡️",
+
+  // Sensory
   "📱",
-  "☕",
+  "💻",
+  "🔊",
+  "🎧",
+  "💡",
+
+  // Recovery
+  "😌",
+  "🧘",
+  "📖",
+  "🎮",
+  "📺",
+
+  // Misc
   "🏷️",
 ];
 
@@ -63,7 +114,10 @@ export function FactorPicker({
 
   return (
     <div className="factor-picker">
-      <span className="field-title">Factors</span>
+      <div className="factor-picker-header">
+        <span className="field-title">Factors</span>
+        <span className="factor-help">Select what was present</span>
+      </div>
 
       <div className="factor-chips">
         {factors.map((factor) => (

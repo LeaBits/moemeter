@@ -57,7 +57,7 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
   const [endTime, setEndTime] = useState("11:00");
   const [type, setType] = useState<ActivityType>("physical");
   const [filter, setFilter] = useState<ActivityType | "all">("all");
-  const [tiredness, setTiredness] = useState(5);
+  const [tiredness, setTiredness] = useState(0);
   const [notes, setNotes] = useState("");
   const [factorIds, setFactorIds] = useState<string[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -101,6 +101,7 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
 
     setStartTime(nextStartTime);
     setEndTime(addOneHour(nextStartTime));
+    setTiredness(defaultTiredness(entries));
 
     setShowForm(true);
   }
@@ -142,6 +143,12 @@ export function TodayPage({ user, onManageFactors }: TodayPageProps) {
     closeForm();
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
+  }
+
+  function defaultTiredness(entries: MoeEntry[]) {
+    if (entries.length === 0) return 0;
+
+    return entries[entries.length - 1].tiredness;
   }
 
   return (
